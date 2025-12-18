@@ -1,0 +1,14 @@
+TOKO MAJU JAYA
+Jl. Merdeka No. 12
+----------------------------
+Tanggal : 18-12-2025 10:30
+Kasir   : Admin
+----------------------------
+Susu       1 x 10000 = 20000
+Roti       1 x 10000 = 10000
+----------------------------
+TOTAL    : 30000
+BAYAR    : 50000
+KEMBALI  : 20000
+----------------------------
+Terima kasih telah berbelanja
