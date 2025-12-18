@@ -1,24 +1,45 @@
-# products.py
 def tambah_barang():
     keranjang = {
-       "M001": {"nama": "Nasi Goreng", "harga": 15000},
-        "M002": {"nama": "Mie Ayam", "harga": 12000},
-        "M003": {"nama": "Bakso", "harga": 13000},
-        "M004": {"nama": "Sate Ayam", "harga": 20000},
-        "M005": {"nama": "Gado-gado", "harga": 10000},
-        "M006": {"nama": "Ayam Penyet", "harga": 18000},
-        "M007": {"nama": "Rendang", "harga": 25000}
+        "M001": {"nama": "Teh Botol", "harga": 5000, "stock": 2},
+        "M002": {"nama": "Tisu", "harga": 3000, "stock": 5},
     }
-    while True:
-        print("-----INPUT BARANG-----")
-        kode = input("Masukkan kode barang: ")
-        nama = input("Masukkan nama barang: ")
-        harga = int(input("Masukkan harga barang: "))
 
-        keranjang[kode] = {"nama": nama, "harga": harga}
-        lanjut = input("tambah barang lagi? (y/n): ")
-        if lanjut != 'y':
+    while True:
+        print("\n----- MENU KERANJANG -----")
+        print("1. Tambah/Update Barang")
+        print("2. Hapus Barang")
+        print("3. Selesai")
+        
+        pilihan = input("Pilih menu (1/2/3): ")
+
+        if pilihan == '1':
+            print("\n--- INPUT BARANG ---")
+            kode = input("Masukkan kode barang  : ")
+            nama = input("Masukkan nama barang  : ")
+            harga = int(input("Masukkan harga barang : "))
+            stock = int(input("Masukkan stock        : "))
+
+            data_baru = {"nama": nama, "harga": harga, "stock": stock}
+            keranjang[kode] = data_baru
+            print(f"Barang {nama} berhasil disimpan.")
+
+        elif pilihan == '2':
+            print("\n--- HAPUS BARANG ---")
+            kode_hapus = input("Masukkan kode barang yang ingin dihapus: ")
+            
+            if kode_hapus in keranjang:
+                nama_terhapus = keranjang[kode_hapus]['nama']
+                del keranjang[kode_hapus]
+                print(f"Barang '{nama_terhapus}' (Kode: {kode_hapus}) telah dihapus.")
+            else:
+                print("Error: Kode barang tidak ditemukan!")
+
+        elif pilihan == '3':
             break
+        
+        else:
+            print("Pilihan tidak valid!")
+
     return keranjang
 
 if __name__ == "__main__":
