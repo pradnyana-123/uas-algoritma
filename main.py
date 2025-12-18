@@ -1,6 +1,6 @@
 import sys
 from login import auth
-import products
+import product.products as products
 def TampilanMenu ():
     print("==================================================")
     print("================= SISTEM KASIR ===================")
