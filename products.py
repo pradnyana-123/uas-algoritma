@@ -26,10 +26,11 @@ def tambah_barang():
 
         elif pilihan == '2':
             print("\n--- UPDATE BARANG ---")
+            id = int(input("Masuk Id Barang Yang Ingin di Update : "))
             harga = int(input("Masuk Harga Barang : "))
             stock = int(input("Masukkan stock        : "))
             update_barang(connection, id, harga, stock)
-            print(f"Harga, Stock barang berhasil diupdate ke database.")
+            print(f"Harga, Stock barang berhasil diupdate ke database, Harga: {harga}, Stock: {stock}")
 
         elif pilihan == '3':
             print("\n--- HAPUS BARANG ---")

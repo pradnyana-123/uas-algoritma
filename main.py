@@ -15,7 +15,7 @@ def main():
         sys.exit()
     while True:
         TampilanMenu ()
-        pilihan = input ("Masuk Menu yang Ingin di Akses :")
+        pilihan = input ("Masuk Menu yang Ingin di Akses : ")
 
         match pilihan:
             case "1":
