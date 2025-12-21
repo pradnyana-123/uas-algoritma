@@ -1,4 +1,4 @@
-from database.database import cek_barang,main, simpan_barang, update_barang, delete_barang, search_barang
+from database.operations import cek_barang,main, simpan_barang, update_barang, delete_barang, search_barang
 
 def tambah_barang():
     connection = main()

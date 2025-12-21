@@ -1,5 +1,4 @@
 import sqlite3
-DB_NAME = "kasir.db"
 
 def main():
     connection = sqlite3.connect("app.db")   
@@ -11,19 +10,19 @@ def main():
     connection.commit()
     return connection
 
-def simpan_transaksi_ke_keranjang(nama_produk, harga_satuan, jumlah_barang_yang_dibeli, subtotal, diskon):
+def simpan_transaksi_ke_keranjang(nama_produk, harga_satuan, jumlah_barang_yang_dibeli, subtotal, jumlah_uang_yang_diberikan, diskon):
     conn = get_connection()
     cursor = conn.cursor()
 
-    cursor.execute("INSERT INTO cart (nama_produk, harga_satuan, jumlah_barang_yang_dibeli, subtotal, diskon) VALUES (?, ?, ?, ?, ?)", (nama_produk, harga_satuan, jumlah_barang_yang_dibeli, subtotal, diskon))
+    cursor.execute("INSERT INTO cart (nama_produk, harga_satuan, jumlah_barang_yang_dibeli, subtotal, jumlah_uang_yang_diberikan, diskon) VALUES (?, ?, ?, ?, ?, ?)", (nama_produk, harga_satuan, jumlah_barang_yang_dibeli, subtotal, jumlah_uang_yang_diberikan, diskon))
     conn.commit()
 
 def ambil_transaksi_dari_keranjang(id_keranjang):
     conn = get_connection()
     cursor = conn.cursor()
 
-    cursor.execute("SELECT nama_produk, harga_satuan, jumlah_barang_yang_dibeli, subtotal, diskon FROM cart WHERE id = ?", (id_keranjang,))
-    data = cursor.fetchone()
+    cursor.execute("SELECT nama_produk, harga_satuan, jumlah_barang_yang_dibeli, subtotal, jumlah_uang_yang_diberikan, diskon FROM cart WHERE id = ?", (id_keranjang,))
+    data = cursor.fetchall()
     conn.close()
 
     return data

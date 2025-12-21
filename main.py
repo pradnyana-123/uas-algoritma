@@ -2,7 +2,7 @@ import sys
 from login import auth
 import product.products as products
 from transaksi.transaksi_main import proses_transaksi
-
+import struk.Struk as struk
 
 def TampilanMenu():
     print("==================================================")
@@ -29,10 +29,11 @@ def main():
 
             case "2":
                 print("Fitur Transaksi")
-                proses_transaksi() 
+                proses_transaksi()   
 
             case "3":
                 print("Fitur Cetak Struk")
+                struk.cetak_struk() 
 
             case "4":
                 print("Keluar Dari Sistem")

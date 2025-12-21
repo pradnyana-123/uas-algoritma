@@ -2,7 +2,7 @@ from transaksi.subtotal import hitung_subtotal
 from transaksi.diskon import hitung_diskon
 from transaksi.total_bayar import hitung_total_bayar
 from transaksi.kembalian import hitung_kembalian
-from database.database import ambil_barang, update_stok_barang, simpan_transaksi_ke_keranjang
+from database.operations import ambil_barang, update_stok_barang, simpan_transaksi_ke_keranjang
 
 def proses_transaksi():
     while True:
@@ -42,7 +42,7 @@ def proses_transaksi():
             kembalian = hitung_kembalian(pembayaran, harga_akhir)
             print(f"Kembalian : {kembalian}")
 
-        simpan_transaksi_ke_keranjang(nama_barang, harga_barang, jumlah_barang, total_harga, nilai_diskon_final)
+        simpan_transaksi_ke_keranjang(nama_barang, harga_barang, jumlah_barang, total_harga, pembayaran, nilai_diskon_final)
         
         
             
