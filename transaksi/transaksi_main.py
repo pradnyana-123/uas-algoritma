@@ -27,8 +27,17 @@ def proses_transaksi():
             print(f"Diskon (Rp) : {diskon}")
             print(f"Harga Setelah Diskon : {total_diskon}")
 
-            
+            total_harga == total_diskon
 
+        pembayaran = (int(input("Masukan Jumlah Pembayaran :")))
+
+        if pembayaran > 100000 :
+            kembalian = pembayaran - total_diskon
+            print (f"kembalian : {kembalian}")
+        
+        else :
+            kembalian = pembayaran - total_harga
+            print(f"Kembalian : {kembalian}")
         
         
 
