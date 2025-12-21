@@ -14,8 +14,7 @@ def proses_transaksi():
         stok = update_stok_barang(jumlah_barang, nama_barang)
         if stok < jumlah_barang :
             harga_barang = barang[0]
-            stok_barang = barang[1]
-            print (f"stok kurang anj")
+            stok_barang = barang[1] 
 
         else :
            
