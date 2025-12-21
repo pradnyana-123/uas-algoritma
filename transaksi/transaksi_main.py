@@ -19,6 +19,9 @@ def proses_transaksi():
         total_harga = hitung_subtotal(harga_barang, jumlah_barang)
         print("Total Harga: " + str(total_harga))
 
+        nilai_diskon_final = None
+        harga_akhir = total_harga
+
         if total_harga > 100000 :
             diskon = hitung_diskon(total_harga)
 
@@ -36,10 +39,10 @@ def proses_transaksi():
             print (f"kembalian : {kembalian}")
             
         else:
-            kembalian = hitung_kembalian(pembayaran, total_harga)
+            kembalian = hitung_kembalian(pembayaran, harga_akhir)
             print(f"Kembalian : {kembalian}")
 
-        simpan_transaksi_ke_keranjang(nama_barang, harga_barang, jumlah_barang, total_harga, diskon)
+        simpan_transaksi_ke_keranjang(nama_barang, harga_barang, jumlah_barang, total_harga, nilai_diskon_final)
         
         
             
