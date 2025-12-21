@@ -50,6 +50,16 @@ def cek_barang(connection):
     data = cursor.fetchall()
     return data
 
+def search_barang(connection, nama_produk):
+    cursor = connection.cursor()
+    cursor.execute("""
+        SELECT * FROM products
+        WHERE nama_produk LIKE ?
+    """, ('%' + nama_produk + '%',))
+    
+    data = cursor.fetchall()
+    return data
+
 def get_connection():
     return sqlite3.connect("app.db")
 
