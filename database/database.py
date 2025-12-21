@@ -1,4 +1,5 @@
 import sqlite3
+DB_NAME = "kasir.db"
 
 def main():
     connection = sqlite3.connect("app.db")   
@@ -8,7 +9,7 @@ def main():
     cursor.execute("CREATE TABLE IF NOT EXISTS products (id integer primary key, nama_produk varchar(100), jumlah_produk integer, harga integer)")
 
     connection.commit()
-    return connection 
+    return connection
 
 def simpan_barang(connection, nama, harga, stock):
     cursor = connection.cursor()
@@ -17,6 +18,14 @@ def simpan_barang(connection, nama, harga, stock):
         VALUES ( ?, ?, ?)
     """, (nama, stock, harga))
     connection.commit()
+
+def update_stok_barang(jumlah_barang, nama_barang):
+    conn = get_connection()
+    cursor = conn.cursor()
+
+    cursor.execute("UPDATE products SET jumlah_produk = jumlah_produk - ? WHERE nama_produk = ?", (jumlah_barang, nama_barang))
+
+    conn.commit()
 
 def update_barang(connection, id, harga, stock):
     cursor = connection.cursor()
@@ -39,6 +48,35 @@ def cek_barang(connection):
     cursor = connection.cursor()
     cursor.execute("SELECT * FROM products")
     data = cursor.fetchall()
+    return data
+
+def get_connection():
+    return sqlite3.connect("app.db")
+
+def init_db():
+    conn = get_connection()
+    cursor = conn.cursor()
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS products (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            nama_produk TEXT,
+            jumlah_produk INTEGER,
+            harga INTEGER
+        )
+    """)
+    conn.commit()
+    conn.close()
+
+
+def ambil_barang(nama_barang):
+    conn = get_connection()
+    cursor = conn.cursor()
+    cursor.execute(
+        "SELECT harga, jumlah_produk FROM products WHERE nama_produk = ?",
+        (nama_barang,)
+    )
+    data = cursor.fetchone()
+    conn.close()
     return data
     
 if __name__ == "__main__":
