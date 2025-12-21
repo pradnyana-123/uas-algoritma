@@ -29,7 +29,7 @@ def main():
 
             case "2":
                 print("Fitur Transaksi")
-                proses_transaksi()   # 🔥 TERHUBUNG KE TRANSAKSI
+                proses_transaksi() 
 
             case "3":
                 print("Fitur Cetak Struk")
