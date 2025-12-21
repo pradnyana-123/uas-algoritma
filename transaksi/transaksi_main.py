@@ -9,39 +9,49 @@ def proses_transaksi():
         nama_barang = str(input("Masukkan nama barang: "))
         jumlah_barang = int(input("Masukkan jumlah barang yang ingin dibeli: "))
 
-        barang = ambil_barang(nama_barang)
+       
 
-        harga_barang = barang[0]
-        stok_barang = barang[1]
+        stok = update_stok_barang(jumlah_barang, nama_barang)
+        if stok < jumlah_barang :
+            harga_barang = barang[0]
+            stok_barang = barang[1]
+            print (f"stok kurang anj")
 
-        print("Harga Barang: "+ str(harga_barang) + " " + "Stok Barang: " + str(stok_barang))
-
-        total_harga = hitung_subtotal(harga_barang, jumlah_barang)
-        print("Total Harga: " + str(total_harga))
-
-        if total_harga > 100000 :
-            diskon = hitung_diskon(total_harga)
-
-            print (f"Diskon : 10%")
-            total_diskon = total_harga - diskon
-            print(f"Diskon (Rp) : {diskon}")
-            print(f"Harga Setelah Diskon : {total_diskon}")
-
-            total_harga == total_diskon
-
-        pembayaran = (int(input("Masukan Jumlah Pembayaran :")))
-
-        if pembayaran > 100000 :
-            kembalian = pembayaran - total_diskon
-            print (f"kembalian : {kembalian}")
-        
         else :
-            kembalian = pembayaran - total_harga
-            print(f"Kembalian : {kembalian}")
+           
+
+            barang = ambil_barang(nama_barang)
+
+            print("Harga Barang: "+ str(harga_barang) + " " + "Stok Barang: " + str(stok_barang))
+
+            total_harga = hitung_subtotal(harga_barang, jumlah_barang)
+            print("Total Harga: " + str(total_harga))
+
+            if total_harga > 100000 :
+                diskon = hitung_diskon(total_harga)
+
+                print (f"Diskon : 10%")
+                total_diskon = total_harga - diskon
+                print(f"Diskon (Rp) : {diskon}")
+                print(f"Harga Setelah Diskon : {total_diskon}")
+
+                total_harga == total_diskon
+
+            pembayaran = (int(input("Masukan Jumlah Pembayaran :")))
+
+            if pembayaran > 100000 :
+                kembalian = hitung_kembalian(pembayaran, total_diskon)
+                print (f"kembalian : {kembalian}")
+            
+            else :
+                kembalian = hitung_kembalian(pembayaran, total_harga)
+                print(f"Kembalian : {kembalian}")
         
         
 
-        update_stok_barang(jumlah_barang, nama_barang)
+       
+        
+        
     
 
 
