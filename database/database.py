@@ -11,6 +11,23 @@ def main():
     connection.commit()
     return connection
 
+def simpan_transaksi_ke_keranjang(nama_produk, harga_satuan, jumlah_barang_yang_dibeli, subtotal, diskon):
+    conn = get_connection()
+    cursor = conn.cursor()
+
+    cursor.execute("INSERT INTO cart (nama_produk, harga_satuan, jumlah_barang_yang_dibeli, subtotal, diskon) VALUES (?, ?, ?, ?, ?)", (nama_produk, harga_satuan, jumlah_barang_yang_dibeli, subtotal, diskon))
+    conn.commit()
+
+def ambil_transaksi_dari_keranjang(id_keranjang):
+    conn = get_connection()
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT nama_produk, harga_satuan, jumlah_barang_yang_dibeli, subtotal, diskon FROM cart WHERE id = ?", (id_keranjang,))
+    data = cursor.fetchone()
+    conn.close()
+
+    return data
+
 def simpan_barang(connection, nama, harga, stock):
     cursor = connection.cursor()
     cursor.execute("""
