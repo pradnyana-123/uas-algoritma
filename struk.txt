@@ -1,14 +1,14 @@
 TOKO MAJU JAYA
 Jl. Merdeka No. 12
 ----------------------------
-Tanggal : 23-12-2025 14:44
+Tanggal : 23-12-2025 15:32
 Kasir   : Admin
 ----------------------------
-Kacang Almond 2 x 5000 = 10000
+susu       20 x 8000 = 160000
 ----------------------------
-TOTAL    : 10000
-BAYAR    : 10000
-KEMBALI  : 0
+TOTAL    : 160000
+BAYAR    : 20000
+KEMBALI  : -140000
 DISKON   : None
 ----------------------------
 Terima kasih telah berbelanja

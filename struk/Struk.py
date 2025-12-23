@@ -4,6 +4,7 @@ from database.operations import ambil_transaksi_dari_keranjang
 def cetak_struk():
     id_keranjang = int(input("Masukkan id keranjang: "))
     keranjang = ambil_transaksi_dari_keranjang(id_keranjang) 
+    print("Keranjang: ",keranjang)
 
     total = sum(item[3] for item in keranjang)
     bayar = keranjang[0][4] 

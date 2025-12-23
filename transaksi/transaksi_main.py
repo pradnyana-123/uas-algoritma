@@ -30,7 +30,9 @@ def proses_transaksi():
             print(f"Diskon (Rp) : {diskon}")
             print(f"Harga Setelah Diskon : {total_diskon}")
 
-            total_harga == total_diskon
+            total_harga = total_diskon
+
+            nilai_diskon_final = diskon
 
         pembayaran = (int(input("Masukan Jumlah Pembayaran :")))
 
