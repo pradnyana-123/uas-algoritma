@@ -27,6 +27,16 @@ def ambil_transaksi_dari_keranjang(id_keranjang):
 
     return data
 
+def ambil_id_transaksi_terbaru_dari_keranjang():
+    conn = get_connection()
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT id FROM cart ORDER BY id DESC LIMIT 1")
+    data = cursor.fetchone()
+
+    return data
+    
+
 def simpan_barang(connection, nama, harga, stock):
     cursor = connection.cursor()
     cursor.execute("""

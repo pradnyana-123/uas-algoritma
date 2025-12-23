@@ -2,7 +2,7 @@ from transaksi.subtotal import hitung_subtotal
 from transaksi.diskon import hitung_diskon
 from transaksi.total_bayar import hitung_total_bayar
 from transaksi.kembalian import hitung_kembalian
-from database.operations import ambil_barang, update_stok_barang, simpan_transaksi_ke_keranjang
+from database.operations import ambil_barang, update_stok_barang, simpan_transaksi_ke_keranjang, ambil_id_transaksi_terbaru_dari_keranjang
 
 def proses_transaksi():
     while True:
@@ -44,7 +44,9 @@ def proses_transaksi():
 
         simpan_transaksi_ke_keranjang(nama_barang, harga_barang, jumlah_barang, total_harga, pembayaran, nilai_diskon_final)
         
-        
+        id_terbaru = ambil_id_transaksi_terbaru_dari_keranjang()
+
+        print("ID Transaksi: " + " " + str(id_terbaru))
             
        
         

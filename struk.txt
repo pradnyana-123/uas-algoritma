@@ -1,14 +1,14 @@
 TOKO MAJU JAYA
 Jl. Merdeka No. 12
 ----------------------------
-Tanggal : 21-12-2025 17:41
+Tanggal : 23-12-2025 14:44
 Kasir   : Admin
 ----------------------------
 Kacang Almond 2 x 5000 = 10000
 ----------------------------
 TOTAL    : 10000
-BAYAR    : 20000
-KEMBALI  : 10000
+BAYAR    : 10000
+KEMBALI  : 0
 DISKON   : None
 ----------------------------
 Terima kasih telah berbelanja
